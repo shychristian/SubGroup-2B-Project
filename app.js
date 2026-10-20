@@ -41,10 +41,10 @@ const studentRepository = {
 // CREATE - Add a new student (post /api/students) - George Erpah 2B 
 
 
-// UPDATE - Update an existing student (put /api/students/:id) - Nebola Elsie 2B
+// UPDATE - Update an existing student (put /api/students/:id) - Nebolisa Elsie 2B
 
 
-// DELETE - Remove a student (delete /api/students/:id) -
+// DELETE - Remove a student (delete /api/students/:id) - Fuseini Musah 2B
 
 
 
