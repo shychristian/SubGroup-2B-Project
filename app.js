@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000
 
 // Sample data for students
 let students = [
-  { id: 1, name: 'Ukah-Nwokejiezi', age: 18, email: 'nzube.nwokejiezi001@gmail.com' },
+  { id: 1, name: 'Ukah-Nwokejiezi Nzubechukwu', age: 18, email: 'nzube.nwokejiezi001@gmail.com' },
   { id: 2, name: 'Wonderful Esele', age: 22, email: 'wonderfulesele@gmail.com' },
   { id: 3, name: 'Author Blessing', age: 19, email: 'authorblessing2008@gmail.com' }
 ];
