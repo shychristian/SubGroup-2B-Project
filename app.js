@@ -75,6 +75,23 @@ return res.status(200).json({
 
 // DELETE - Remove a student (delete /api/students/:id) - Fuseini Musah 2B
 
+app.delete('/api/students/:id', (req, res) => {
+  const id = Number(req.params.id);
+
+  const deletedStudent = studentRepository.remove(id);
+
+  if (!deletedStudent) {
+    return res.status(404).json({
+      message: 'Student not found'
+    });
+  }
+
+  return res.status(200).json({
+    message: 'Student deleted successfully',
+    student: deletedStudent
+  });
+});
+
 
 
 app.listen(port, () => {
