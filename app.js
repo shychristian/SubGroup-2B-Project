@@ -38,8 +38,16 @@ const studentRepository = {
 // READ - Get all students(get /api/students) - Author Blessing 2B
 
 
-// CREATE - Add a new student (post /api/students) - George Erpah 2B 
-
+// CREATE - Add a new student (post /api/students) - George Erpha 2B 
+app.post('/api/students', (req, res) => {
+  const {name} = req.body;
+  const {age} = req.body;
+  const {email} = req.body;
+  const newStudent = {id: students.length +1, ...req.body};
+  if (!name || !age || !email) return res.status(400).json({ error: 'Name, age and email required'})
+  students.push(newStudent);
+  res.status(201).json({ message: 'New student added successfully'});
+});
 
 // UPDATE - Update an existing student (put /api/students/:id) - Nebolisa Elsie 2B
 
@@ -76,7 +84,7 @@ return res.status(200).json({
 // DELETE - Remove a student (delete /api/students/:id) - Fuseini Musah 2B
 
 
-
+const PORT = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${PORT}`);
+});
