@@ -38,7 +38,7 @@ const studentRepository = {
 // READ - Get all students(get /api/students) - Author Blessing 2B
 
 
-// CREATE - Add a new student (post /api/students) - George Erpha 2B 
+// CREATE - Add a new student (post /api/students) - George Erpah 2B 
 app.post('/api/students', (req, res) => {
   const {name} = req.body;
   const {age} = req.body;
@@ -83,8 +83,25 @@ return res.status(200).json({
 
 // DELETE - Remove a student (delete /api/students/:id) - Fuseini Musah 2B
 
+app.delete('/api/students/:id', (req, res) => {
+  const id = Number(req.params.id);
 
-const PORT = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  const deletedStudent = studentRepository.remove(id);
+
+  if (!deletedStudent) {
+    return res.status(404).json({
+      message: 'Student not found'
+    });
+  }
+
+  return res.status(200).json({
+    message: 'Student deleted successfully',
+    student: deletedStudent
+  });
 });
+
+
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
