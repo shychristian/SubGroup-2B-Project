@@ -29,10 +29,17 @@ const studentRepository = {
 }
 };
 // Routing Layer (The controller)
-// READ - Get all students(get /api/students) - Arthur Blessing 2B
 
+// READ - Get all students (GET /api/students) - Arthur Blessing 2B
+app.get('/api/students', (req, res) => {
+    const students = studentRepository.getAll();
 
-// CREATE - Add a new student (post /api/students) - George Erpha 2B 
+    return res.status(200).json({
+        message: 'Students retrieved successfully',
+        students: students
+    });
+});
+ // CREATE - Add a new student (post /api/students) - George Erpha 2B 
 app.post('/api/students', (req, res) => {
   const { name, age, email } = req.body;
   const newStudent = {id: nextId++, ...req.body};
