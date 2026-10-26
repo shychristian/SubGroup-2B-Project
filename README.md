@@ -31,7 +31,7 @@ The **Student CRUD API** lets you **C**reate, **R**ead, **U**pdate and **D**elet
 | --- | --- | --- |
 | **Logic Layer** | Wonderful Esele | Handles validation and business logic, including checking for missing information and handling errors during create, update and delete operations. |
 | **Create Operation** | George Erphan | Adds new student records to the system. |
-| **Read Operation** | Author Blessing | Retrieves and displays the current list of students in JSON format. |
+| **Read Operation** | Arthur Blessing | Retrieves and displays the current list of students in JSON format. |
 | **Update Operation** | Nebolisa Elsie | Updates existing student records using their unique IDs. |
 | **Delete Operation** | Fuseini Musah | Removes student records using their unique IDs. |
 
@@ -96,9 +96,9 @@ Base URL: `/api/students`
 
 ```json
 {
-  "name": "Jane Doe",
-  "age": 20,
-  "email": "jane@example.com"
+  "name": "Ihebereme Tobe",
+  "age": 19,
+  "email": "tobe.ihe@gmail.com"
 }
 ```
 
