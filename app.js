@@ -32,7 +32,7 @@ const studentRepository = {
 // READ - Get all students(get /api/students) - Author Blessing 2B
 
 
-// CREATE - Add a new student (post /api/students) - George Erpah 2B 
+// CREATE - Add a new student (post /api/students) - George Erpha 2B 
 app.post('/api/students', (req, res) => {
   const { name, age, email } = req.body;
   const newStudent = {id: nextId++, ...req.body};
