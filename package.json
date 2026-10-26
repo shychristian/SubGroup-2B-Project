@@ -18,5 +18,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shychristian/SubGroup-2B-Project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shychristian/SubGroup-2B-Project/issues"
+  },
+  "homepage": "https://github.com/shychristian/SubGroup-2B-Project#readme"
 }

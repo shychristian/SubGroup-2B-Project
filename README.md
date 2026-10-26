@@ -36,8 +36,10 @@ POST - Create resources
 PUT - Update a resource
 DELETE - Delete a resource
 
-CONTRIBUTORS:
-
-
-README - DANIA TYSON:
-Give a clear instruction
+CONTRIBUTORS AND ROLE PLAYED
+Wonderful Esele -LOGIC LAYER
+George Erphan - CREATE OPERATION
+Author Blessing - READ OPERATION 
+Nebolisa Elsie - UPDATE OPERATION
+Fuseini Musah - DELETE OPERATOIN  
+DANIA TYSON - README 
