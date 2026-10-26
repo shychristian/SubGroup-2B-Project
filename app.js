@@ -11,6 +11,8 @@ let students = [
   { id: 3, name: 'Author Blessing', age: 19, email: 'authorblessing2008@gmail.com' }
 ];
 
+let nextId = Math.max(...students.map(s => s.id), 0) + 1;
+
 const studentRepository = {
     getAll: () => students,
     add: (student) => { students.push(student); return student; },
@@ -20,29 +22,26 @@ const studentRepository = {
         students[index] = { ...students[index], ...updatedData };
         return students[index];
     },
-    remove: (id) => {
-        const index = students.findIndex(s => s.id === id);
-        if (index === -1) return null;
-        return students.splice(index, 1);
-    }
+   remove: (id) => {
+    const index = students.findIndex(s => s.id === id);
+    if (index === -1) return null;
+    return students.splice(index, 1)[0];
+}
 };
-
-// Logic Layer(The service) - Wonderful Esele 2B
-
-
 // Routing Layer (The controller)
 // READ - Get all students(get /api/students) - Author Blessing 2B
 
 
 // CREATE - Add a new student (post /api/students) - George Erpah 2B 
 app.post('/api/students', (req, res) => {
-  const {name} = req.body;
-  const {age} = req.body;
-  const {email} = req.body;
-  const newStudent = {id: students.length +1, ...req.body};
+  const { name, age, email } = req.body;
+  const newStudent = {id: nextId++, ...req.body};
   if (!name || !age || !email) return res.status(400).json({ error: 'Name, age and email required'})
   students.push(newStudent);
-  res.status(201).json({ message: 'New student added successfully'});
+  res.status(201).json({
+     message: 'New student added successfully',
+     student: newStudent
+  });
 });
 
 // UPDATE - Update an existing student (put /api/students/:id) - Nebolisa Elsie 2B
