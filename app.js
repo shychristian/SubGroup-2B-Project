@@ -1,14 +1,10 @@
-// Load environment variables from .env file- Nzubechukwu 2B
-require('dotenv').config()
-const express = require('express');
+import express from "express"
+import dotenv from "dotenv"
+
 const app = express()
 const port = process.env.PORT || 3000
-
-app.use(express.json()) // Middleware to parse JSON request bodies
-
-// DATA LAYER- Nzubechukwu 2B
-
-// Sample data for students - Nzubechukwu 2B
+dotenv.config()
+// Sample data for students
 let students = [
   { id: 1, name: 'Ukah-Nwokejiezi Nzubechukwu', age: 18, email: 'nzube.nwokejiezi001@gmail.com' },
   { id: 2, name: 'Wonderful Esele', age: 22, email: 'wonderfulesele@gmail.com' },

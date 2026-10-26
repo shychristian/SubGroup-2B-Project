@@ -1,8 +1,4 @@
 {
-  "dependencies": {
-    "dotenv": "^18.0.8",
-    "express": "^5.3.0"
-  },
   "name": "2b-project",
   "version": "1.0.0",
   "description": "",
@@ -18,13 +14,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shychristian/SubGroup-2B-Project.git"
-  },
-  "bugs": {
-    "url": "https://github.com/shychristian/SubGroup-2B-Project/issues"
-  },
-  "homepage": "https://github.com/shychristian/SubGroup-2B-Project#readme"
+  "type": "module",
+
+  "dependencies": {
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0"
+  }
 }
