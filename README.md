@@ -129,7 +129,7 @@ Returns `200 OK` with the deleted student, or `404 Not Found` if the ID doesn't 
 | **Ukah-Nwokejiezi Nzubechukwu** | Team Leader: set up the environment and repository |
 | **Wonderful Esele** | Logic Layer |
 | **George Erphan** | Create Operation |
-| **Author Blessing** | Read Operation |
+| **Arthur Blessing** | Read Operation |
 | **Nebolisa Elsie** | Update Operation |
 | **Fuseini Musah** | Delete Operation |
 | **Dania Tyson** | README documentation |
