@@ -29,7 +29,7 @@ const studentRepository = {
 }
 };
 // Routing Layer (The controller)
-// READ - Get all students(get /api/students) - Author Blessing 2B
+// READ - Get all students(get /api/students) - Arthur Blessing 2B
 
 
 // CREATE - Add a new student (post /api/students) - George Erpha 2B 
