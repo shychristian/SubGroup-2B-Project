@@ -46,6 +46,22 @@ app.get('/api/students', (req, res) => {
         students: students
     });
 });
+
+// READ - Get a student by ID (GET /api/students/:id) - Ukah-Nwokejiezi Nzubechukwu 2B
+app.get('/api/students/:id', (req, res) => {
+    const id = Number(req.params.id);
+    const student = studentRepository.getAll().find(s => s.id === id);
+    if (!student) {
+        return res.status(404).json({
+            message: 'Student not found'
+        });
+    }
+     return res.status(200).json({
+        message: 'Student retrieved successfully',
+        student: student
+    });
+});
+
  // CREATE - Add a new student (post /api/students) - George Erpha 2B 
 app.post('/api/students', (req, res) => {
   try {
