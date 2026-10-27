@@ -77,7 +77,7 @@ npm start
 
 > 💡 **Tip:** If `nodemon` is installed and added to your `package.json` scripts, you can run the server in development mode with `npm run dev`. It restarts automatically whenever you save a file.
 
-The server runs at `http://localhost:3000` by default.
+The server runs at `http://localhost:5001` by default.
 
 ## 🔌 API Endpoints
 
