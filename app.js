@@ -1,9 +1,11 @@
-import express from "express"
-import dotenv from "dotenv"
-
+require('dotenv').config()
+const express = require('express');
+const { createStudent } = require('./src/services/studentService');
 const app = express()
-const port = process.env.PORT || 3000
-dotenv.config()
+const PORT = process.env.PORT || 5001
+
+
+app.use(express.json())
 // Sample data for students
 let students = [
   { id: 1, name: 'Ukah-Nwokejiezi Nzubechukwu', age: 18, email: 'nzube.nwokejiezi001@gmail.com' },
@@ -15,7 +17,12 @@ let nextId = Math.max(...students.map(s => s.id), 0) + 1;
 
 const studentRepository = {
     getAll: () => students,
-    add: (student) => { students.push(student); return student; },
+    getByEmail: (email) => students.find(student => student.email === email),
+    add: (student) => {
+      const newStudent = { id: nextId++, ...student };
+      students.push(newStudent);
+      return newStudent;
+    },
     update: (id, updatedData) => {
         const index = students.findIndex(s => s.id === id);
         if (index === -1) return null;
@@ -41,14 +48,18 @@ app.get('/api/students', (req, res) => {
 });
  // CREATE - Add a new student (post /api/students) - George Erpha 2B 
 app.post('/api/students', (req, res) => {
-  const { name, age, email } = req.body;
-  const newStudent = {id: nextId++, ...req.body};
-  if (!name || !age || !email) return res.status(400).json({ error: 'Name, age and email required'})
-  students.push(newStudent);
-  res.status(201).json({
-     message: 'New student added successfully',
-     student: newStudent
-  });
+  try {
+    const newStudent = createStudent(req.body, studentRepository);
+
+    return res.status(201).json({
+      message: 'New student added successfully',
+      student: newStudent
+    });
+  } catch (error) {
+    return res.status(error.status || 500).json({
+      error: error.message || 'Failed to add student'
+    });
+  }
 });
 
 // UPDATE - Update an existing student (put /api/students/:id) - Nebolisa Elsie 2B
@@ -104,6 +115,6 @@ app.delete('/api/students/:id', (req, res) => {
 
 
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+app.listen(PORT, () => {
+  console.log(`Student Record API running on port ${PORT} :)`)
+});

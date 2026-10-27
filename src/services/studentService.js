@@ -37,7 +37,7 @@ const data = {
 };
 
 // ---------- Helpers ----------
-const FIELDS = ["name", "email", "age", "course"];
+const FIELDS = ["name", "email", "age"];
 
 function isMissing(value) {
   return (
@@ -52,7 +52,7 @@ function isValidAge(age) {
 }
 
 // ---------- Logic layer ----------
-function createStudent(info = {}) {
+function createStudent(info = {}, repository = data) {
   const missing = FIELDS.filter((field) => isMissing(info[field]));
   if (missing.length > 0) {
     throw { status: 400, message: `Missing required field(s): ${missing.join(", ")}` };
@@ -62,12 +62,12 @@ function createStudent(info = {}) {
     throw { status: 400, message: "Age must be a number greater than 0" };
   }
 
-  if (data.getByEmail(info.email)) {
+  if (repository.getByEmail(info.email)) {
     throw { status: 409, message: "A student with this email already exists" };
   }
 
-  const { name, email, age, course } = info;
-  return data.add({ name, email, age, course });
+  const { name, email, age } = info;
+  return repository.add({ name, age, email });
 }
 
 function getStudent(id) {
